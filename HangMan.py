@@ -5,11 +5,11 @@ print("Game Rules: You have 1 more life than the length of the hidden word, if y
 secretWords = ["apple","banana","orange"]
 screenWords = ""
 
-live = len(secretWords)+1
+life = len(secretWords)+1
 x = random.randint(0, len(secretWords)-1)
 trueWords = ""
 
-while live>0 and len(trueWords) != len(secretWords[x]):
+while life>0 and len(trueWords) != len(secretWords[x]):
     
     while True:
         guess = input("Enter Your GUESS (only 1 word): ")
@@ -31,7 +31,7 @@ while live>0 and len(trueWords) != len(secretWords[x]):
             print("*")
 
     if guess not in secretWords[x]:
-        live -=1
+        life -=1
         print("Wrong!")
         if live == 0:
             print("You Lose")
