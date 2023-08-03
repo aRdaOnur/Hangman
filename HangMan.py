@@ -8,7 +8,7 @@ screenWords = ""
 live = len(secretWords)+1
 x = random.randint(0, len(secretWords)-1)
 trueWords = ""
-print(secretWords[x])
+
 while live>0 and len(trueWords) != len(secretWords[x]):
     
     while True:
