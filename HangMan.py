@@ -1,15 +1,15 @@
 import random 
 
 print("Let's Play HangMan")
-print("Game Rules: You have 1 more life than the length of the hidden word, if you run out of lives => the game is over, you will try to guess the word. So let's start")
-secretWords = ["apple","banana","orange"]
+print("Game Rules: You have 1 more life than the length of the hidden word, if you run out of lives => the game is over,\n you will try to guess the word. So let's start")
+secretWords = ["mamur","mamur","mamur"]
 screenWords = ""
 
-life = len(secretWords)+1
+live = len(secretWords)+1 
 x = random.randint(0, len(secretWords)-1)
 trueWords = ""
 
-while life>0 and len(trueWords) != len(secretWords[x]):
+while live>0 and len(set(trueWords)) != len(set(secretWords[x])):
     
     while True:
         guess = input("Enter Your GUESS (only 1 word): ")
@@ -19,7 +19,11 @@ while life>0 and len(trueWords) != len(secretWords[x]):
         elif not guess.isalpha():
             print("Input only word!")
         else:
+            if guess in set(trueWords):
+                print("Word already exists")
+                continue
             break
+
     
     for i in secretWords[x]:
         if i == guess:
@@ -30,17 +34,20 @@ while life>0 and len(trueWords) != len(secretWords[x]):
         else:
             print("*")
 
+
     if guess not in secretWords[x]:
-        life -=1
+        live -=1
         print("Wrong!")
         if live == 0:
             print("You Lose")
+
 
     if guess in secretWords[x]:
         print("True!")
         trueWords += guess
 
-    if len(trueWords) == len(secretWords[x]):
+
+    if len(set(trueWords)) == len(set(secretWords[x])):
         print("YOU WON!!!")
         break
         
