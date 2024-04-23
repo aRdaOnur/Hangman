@@ -12,12 +12,12 @@ trueWords = ""
 while live>0 and len(set(trueWords)) != len(set(secretWords[x])):
     
     while True:
-        guess = input("Enter Your GUESS (only 1 word): ")
+        guess = input("Enter Your GUESS (only 1 letter): ")
         
         if len(guess) != 1 :
-            print("Only 1 word!!")
+            print("Only 1 letter!!")
         elif not guess.isalpha():
-            print("Input only word!")
+            print("Input only letter!")
         else:
             if guess in set(trueWords):
                 print("Word already exists")
