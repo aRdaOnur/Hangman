@@ -1,4 +1,5 @@
 import random 
+import os 
 
 print("Let's Play HangMan")
 print("Game Rules: You have 1 more life than the length of the hidden word, if you run out of lives => the game is over,\n you will try to guess the word. So let's start")
@@ -17,7 +18,7 @@ while live>0 and len(set(trueWords)) != len(set(secretWords[x])):
         if len(guess) != 1 :
             print("Only 1 letter!!")
         elif not guess.isalpha():
-            print("Input only letter!")
+            print("Input only string!")
         else:
             if guess in set(trueWords):
                 print("Word already exists")
@@ -30,9 +31,10 @@ while live>0 and len(set(trueWords)) != len(set(secretWords[x])):
             screenWords += i 
             
         if i in screenWords:
-            print(i)
+            print(i, end=" ")
+
         else:
-            print("*")
+            print("*", end=" ")
 
 
     if guess not in secretWords[x]:
